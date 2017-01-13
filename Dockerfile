@@ -1,4 +1,4 @@
-FROM python:3.5-alpine
+FROM python:3.6-alpine
 MAINTAINER Xan Manning <git@xan-manning.co.uk>
 
 RUN mkdir -p /app/mirbot
