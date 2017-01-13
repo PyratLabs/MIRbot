@@ -1,6 +1,6 @@
-# MIRbot 3.0.0
+# MIRbot 3.0.1
 
-## Written by PyratLabs 2015, [http://pyrat.io/](http://pyrat.io/)
+## Written by PyratLabs 2017, [http://pyrat.io/](http://pyrat.io/)
 
 ![MIRbot](images/mirbot.png)
 
@@ -30,7 +30,7 @@ This has been released under the MIT License.
 
 MIRbot has been released under an MIT License
 
-    Copyright (c) 2015 PyratLabs (http://pyrat.io/)
+    Copyright (c) 2017 PyratLabs (http://pyrat.io/)
 
     Permission is hereby granted, free of charge, to any person obtaining a
     copy of this software and associated documentation files (the "Software"),
