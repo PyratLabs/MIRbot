@@ -1,0 +1,10 @@
+*.pyc
+__pycache__
+data/*.db
+.DS_Store
+dist/*
+*.egg-info
+.eggs
+ve-*
+Vagrantfile
+.vagrant/
