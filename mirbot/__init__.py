@@ -1957,7 +1957,7 @@ class MIRCore:
         }
 
         if sys.version_info > (3,5):
-            self.db_exec("END TRANSACTION; VACUUM;")
+            self.notice("This action is unavailable in Python 3.6+")
         else:
             self.db_exec("VACUUM;")
 
