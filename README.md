@@ -1,4 +1,4 @@
-# MIRbot 3.0.1
+# MIRbot 3.0.2
 
 ## Written by PyratLabs 2017, [http://pyrat.io/](http://pyrat.io/)
 

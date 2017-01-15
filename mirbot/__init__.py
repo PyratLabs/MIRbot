@@ -54,7 +54,7 @@ class MIRCore:
         # Variables for storing globally accessible data.
         # These are never reset on reconnect.
         # Schema version.
-        self.version = 3001
+        self.version = 3002
 
         # User's Homedir Configuration
         if 'home' not in args:
@@ -177,6 +177,8 @@ class MIRCore:
             'login': loginHelp,
             'seen': 'See a users last recorded action.'
         }]
+
+        self.module_promoted_help = []
 
         self.module_oper_help = [{
             'nick': 'Change the bot nickname.',
@@ -1303,6 +1305,13 @@ class MIRCore:
                     'au_help')()
                 )
 
+            # Add to the promoted list
+            if 'ap_help' in dir(self.module_instance[className]):
+                self.module_promoted_help.append(
+                    getattr(self.module_instance[className],
+                    'ap_help')()
+                )
+
             # Add to the oper list
             if 'ao_help' in dir(self.module_instance[className]):
                 self.module_oper_help.append(
@@ -1326,6 +1335,20 @@ class MIRCore:
                 # format as [function] description
                 self.notice("[%s%s]: %s"
                     % (self.config['prefix'], helpFunction, helpDescription))
+
+        # Show promoted user functions
+        if self.checkPromoted(self.buffer['username']) \
+            and len(self.module_promoted_help) > 0:
+            self.notice("-")
+            self.notice("=== Promoted user functions ===")
+            self.notice("-")
+            for module_dict in self.module_promoted_help:
+                for helpFunction in module_dict:
+                    helpDescription = module_dict[helpFunction]
+                    self.notice("[%s%s]: %s"
+                        % (self.config['prefix'],
+                           helpFunction,
+                           helpDescription))
 
         # Show botmaster functions
         if self.hasAccess(self.buffer['user_host']):
@@ -1956,7 +1979,11 @@ class MIRCore:
             'username': self.buffer['username']
         }
 
-        self.db_exec("VACUUM;")
+        if sys.version_info > (3,5):
+            self.notice("This action is unavailable in Python 3.6+")
+        else:
+            self.db_exec("VACUUM;")
+
         self.log(aBuffer)
         self.notice("Database vacuumed.")
 
