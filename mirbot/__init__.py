@@ -1979,7 +1979,11 @@ class MIRCore:
             'username': self.buffer['username']
         }
 
-        self.db_exec("VACUUM;")
+        if sys.version_info > (3,5):
+            self.notice("This action is unavailable in Python 3.6+")
+        else:
+            self.db_exec("VACUUM;")
+
         self.log(aBuffer)
         self.notice("Database vacuumed.")
 
