@@ -178,8 +178,7 @@ class MIRCore:
             'seen': 'See a users last recorded action.'
         }]
 
-        self.module_promoted_help = [{
-        }]
+        self.module_promoted_help = []
 
         self.module_oper_help = [{
             'nick': 'Change the bot nickname.',
