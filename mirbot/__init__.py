@@ -178,6 +178,8 @@ class MIRCore:
             'seen': 'See a users last recorded action.'
         }]
 
+        self.module_promoted_help = []
+
         self.module_oper_help = [{
             'nick': 'Change the bot nickname.',
             'restart': 'Restart Bot. (refreshes modules)',
@@ -1303,6 +1305,13 @@ class MIRCore:
                     'au_help')()
                 )
 
+            # Add to the promoted list
+            if 'ap_help' in dir(self.module_instance[className]):
+                self.module_promoted_help.append(
+                    getattr(self.module_instance[className],
+                    'ap_help')()
+                )
+
             # Add to the oper list
             if 'ao_help' in dir(self.module_instance[className]):
                 self.module_oper_help.append(
@@ -1326,6 +1335,20 @@ class MIRCore:
                 # format as [function] description
                 self.notice("[%s%s]: %s"
                     % (self.config['prefix'], helpFunction, helpDescription))
+
+        # Show promoted user functions
+        if self.checkPromoted(self.buffer['username']) \
+            and len(self.module_promoted_help) > 0:
+            self.notice("-")
+            self.notice("=== Promoted user functions ===")
+            self.notice("-")
+            for module_dict in self.module_promoted_help:
+                for helpFunction in module_dict:
+                    helpDescription = module_dict[helpFunction]
+                    self.notice("[%s%s]: %s"
+                        % (self.config['prefix'],
+                           helpFunction,
+                           helpDescription))
 
         # Show botmaster functions
         if self.hasAccess(self.buffer['user_host']):

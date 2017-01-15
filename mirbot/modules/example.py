@@ -46,6 +46,12 @@ class example:
 			'dummy': 'This is a dummy function, it will do nothing!'
 		}
 
+		# For functions requiring user promotion put them in the following
+		# Dictionary. It is only visible to users in the promoted list.
+		self.promoted_help = {
+			'promotedexample': 'An example of promoted user function'
+		}
+
 		# For functions requiring user login put them in the following
 		# Dictionary. It is only visible to logged in users.
 		self.oper_help = {
@@ -63,6 +69,10 @@ class example:
 	# This is the hook for importing user help functions into core.
 	def au_help(self):
 		return self.basic_help
+
+	# This is the hook for importing promoted user help functions into core.
+	def ap_help(self):
+		return self.promoted_help
 
 	# This is the hook for importing oper help functions into core.
 	def ao_help(self):
