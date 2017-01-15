@@ -1956,7 +1956,11 @@ class MIRCore:
             'username': self.buffer['username']
         }
 
-        self.db_exec("VACUUM;")
+        if sys.version_info > (3,5):
+            self.db_exec("END TRANSACTION; VACUUM;")
+        else:
+            self.db_exec("VACUUM;")
+
         self.log(aBuffer)
         self.notice("Database vacuumed.")
 
