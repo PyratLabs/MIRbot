@@ -5,7 +5,7 @@ def readme():
         return f.read()
 
 setup(name='mirbot',
-      version='3.0.1',
+      version='3.0.2',
       description='Modular Information Retrieval Bot (MIRbot)',
       long_description=readme(),
       url='https://github.com/pyratlabs/mirbot',

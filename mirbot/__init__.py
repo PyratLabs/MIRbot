@@ -54,7 +54,7 @@ class MIRCore:
         # Variables for storing globally accessible data.
         # These are never reset on reconnect.
         # Schema version.
-        self.version = 3001
+        self.version = 3002
 
         # User's Homedir Configuration
         if 'home' not in args:
