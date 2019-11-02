@@ -1,11 +1,11 @@
 language: python
-dist: xenial
+dist: bionic
 sudo: yes
 python:
-  - "3.4"
   - "3.5"
   - "3.6"
   - "3.7"
+  - "3.8"
   - "nightly"
 script:
   - nosetests
