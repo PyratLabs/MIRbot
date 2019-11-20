@@ -1,18 +1,23 @@
 language: python
 dist: bionic
-sudo: yes
+sudo: true
 python:
-  - "3.5"
-  - "3.6"
-  - "3.7"
-  - "3.8"
-  - "nightly"
+- '3.5'
+- '3.6'
+- '3.7'
+- '3.8'
+- nightly
 script:
-  - nosetests
+- nosetests
+deploy:
+  provider: pypi
+  user: __token__
+  password:
+    secure: yD/g9iFW56We7KtY/N6EYzs4sOyzqnHrrkU/rAj2rjxDnLmUiNc4mnf8B9wpYMGzMMFoXK2hEkbM4bGygQintV4z4QQhZSlm9arJayveP8kMEIs2Mqgzj6T1eeFPrFYqD1vm9kWiqyvtCjI40R9pJMazuWZFTIZ9ROvgXEK9VsqR7V8fQo2mIoQLlAVCIVvwN4smSFLgd00Hhv8gDI6E5sb7yxyKMH0dIxL3uBFztd+5kOTaeCFjJNhsFkdzCwqZxSKcRguj+mP00wBdjNQxLHGNHLTimU6D2oP0YPnu52/xCVIxYhW0zNmlwvhlD3qzFn1n7twTjC8u2rb9C3GFp9ql8gjfEBzFGmbd7EzIG8SQYdhsog5YoBmaKpJkipsKEMI4Uh4b3aQMgeKoiPhH3kY5Ud+XMkYVbtuOhB+ANnWa2IKopDWPdgGVtbkejTheO+kAoBWC6wCrciKExmpzjAF+LKzP+q/JbtOwkXxX6XEYq0HAp20pCkIoxnuwBAyO7dHEzLFNM7JMi0RCQ+P6HwDq6pX2+EOi5rQASmFWo93fpt+WQTMc1jfNV2y8ASuRmnL02zQj/8wcICH6KCQG7aVUc3r5bKMpqmRd4FhzyYp/RTPu2QD0C95nRTelmb2wb1ZwHtTv7yDAF+LTCOFjjbjECt0g0WkeXsgdM0/9I7g=
 notifications:
   irc:
-    channels: "irc.freenode.org#pyrat"
+    channels: irc.freenode.org#pyrat
     template:
-      - "%{repository}@%{branch}: %{message} (%{build_url})"
+    - "%{repository}@%{branch}: %{message} (%{build_url})"
     on_success: change
     on_failure: change
