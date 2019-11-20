@@ -1,5 +1,5 @@
-FROM python:3.7-alpine
-MAINTAINER Xan Manning <git@xanmanning.co.uk>
+FROM python:3.8-alpine
+MAINTAINER Xan Manning <xan@manning.io>
 
 RUN mkdir -p /app/mirbot
 RUN mkdir -p /var/lib/mirbot

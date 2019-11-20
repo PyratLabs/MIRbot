@@ -5,12 +5,12 @@ def readme():
         return f.read()
 
 setup(name='mirbot',
-      version='3.0.2',
+      version='3.0.5',
       description='Modular Information Retrieval Bot (MIRbot)',
       long_description=readme(),
-      url='https://github.com/pyratlabs/mirbot',
+      url='https://github.com/PyratLabs/MIRbot',
       author='PyratLabs',
-      author_email='git@xan-manning.co.uk',
+      author_email='xan@manning.io',
       license='MIT',
       packages=['mirbot'],
       scripts=['bin/mirbot'],

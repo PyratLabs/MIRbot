@@ -7,7 +7,7 @@
 # Written by Xan Manning
 # ----------------------------------------------------------------------------
 #
-# Copyright (c) 2015 Xan Manning (http://xan-manning.co.uk)
+# Copyright (c) 2017 PyratLabs (https://pyrat.co)
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
